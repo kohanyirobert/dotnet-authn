@@ -1,0 +1,12 @@
+﻿@model LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form method="POST">
+    Email: <input asp-for="Email"/> <br/>
+    Password: <input asp-for="Password"/><br/>
+    <button asp-controller="Account" asp-action="Login">Login</button>
+    @Html.ValidationMessage("InvalidLogin")
+</form>
