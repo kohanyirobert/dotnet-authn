@@ -34,22 +34,29 @@ public class AccountController : ControllerBase
             return Task.FromResult<IActionResult>(Unauthorized());
         }
 
+        var validIssuer = _configuration["Authentication:Schemes:Bearer:ValidIssuer"];
+        var signingKey = _configuration
+            .GetSection("Authentication:Schemes:Bearer:SigningKeys")
+            .GetChildren()
+            .Single(x => x["Issuer"] == validIssuer);
+        var bytes = Convert.FromBase64String(signingKey["Value"]!);
+        var key = new SymmetricSecurityKey(bytes);
+
+        var claims = new List<Claim>();
+        claims.AddRange(_configuration
+            .GetSection("Authentication:Schemes:Bearer:ValidAudiences")
+            .Get<string[]>()!
+            .Select(x => new Claim(JwtRegisteredClaimNames.Aud, x))
+        );
+        claims.Add(new Claim(ClaimTypes.Email, email));
+        claims.Add(new Claim(ClaimTypes.Role, email == "admin@admin" ? "Admin" : "User"));
+
         var tokenObject = _handler.CreateToken(new SecurityTokenDescriptor
         {
-            Subject = new ClaimsIdentity(
-                new[]
-                {
-                    new Claim(ClaimTypes.Email, email),
-                    new Claim(ClaimTypes.Role, email == "admin@admin" ? "Admin" : "User"),
-                }
-            ),
+            Subject = new ClaimsIdentity(claims),
             Expires = DateTime.Now.AddMinutes(1),
-            Issuer = _configuration["Authentication:Schemes:Bearer:ValidIssuer"],
-            Audience = _configuration["Authentication:Schemes:Bearer:ValidAudiences:0"],
-            SigningCredentials = new SigningCredentials(
-                new SymmetricSecurityKey("SigningKeysSigningKeysSigningKeysSigningKeys"u8.ToArray()),
-                SecurityAlgorithms.HmacSha256
-            )
+            Issuer = validIssuer,
+            SigningCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature),
         });
         var tokenString = _handler.WriteToken(tokenObject);
         return Task.FromResult<IActionResult>(Ok(new {token = tokenString}));
