@@ -11,7 +11,7 @@ export function Login() {
     const [password, setPassword] = useState()
 
     async function onLogin() {
-        const response = await fetch('/Account/Login', {
+        await fetch('/Account/Login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -21,8 +21,6 @@ export function Login() {
                 password,
             })
         })
-        const json = await response.json()
-        localStorage.setItem('token', json.token)
         navigate('/')
     }
 

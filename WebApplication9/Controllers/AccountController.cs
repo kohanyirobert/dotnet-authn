@@ -3,6 +3,8 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using WebApplication9.Models;
@@ -25,13 +27,14 @@ public class AccountController : ControllerBase
     }
 
     [HttpPost("Login")]
-    public Task<IActionResult> Login([FromBody] LoginDTO login)
+    public IResult Login([FromBody] LoginDTO login)
     {
+        HttpContext.AuthenticateAsync();
         var email = login.Email;
         var password = login.Password;
         if (email != "admin@admin" && password != "admin" && email != "user@user" && password != "user")
         {
-            return Task.FromResult<IActionResult>(Unauthorized());
+            return Results.Unauthorized();
         }
 
         var validIssuer = _configuration["Authentication:Schemes:Bearer:ValidIssuer"];
@@ -59,7 +62,14 @@ public class AccountController : ControllerBase
             SigningCredentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256Signature),
         });
         var tokenString = _handler.WriteToken(tokenObject);
-        return Task.FromResult<IActionResult>(Ok(new {token = tokenString}));
+        
+        HttpContext.Response.Cookies.Append("jwt", tokenString, new CookieOptions
+        {
+            HttpOnly = true,
+            Secure = true,
+            SameSite = SameSiteMode.Strict,
+        });
+        return Results.Ok();
     }
 
     [HttpGet]

@@ -8,11 +8,7 @@ export function UserSecret() {
 
     useEffect(() => {
         async function getIndex() {
-            const response = await fetch("/Home/UserSecret", {
-                headers: {
-                    'Authorization': 'Bearer ' + localStorage.getItem('token'),
-                }
-            })
+            const response = await fetch("/Home/UserSecret")
             setText(response.ok ? await response.text() : response.statusText)
         }
 
