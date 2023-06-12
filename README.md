@@ -94,8 +94,8 @@ I'll focus on the first three, because OAuth2, OICD, etc. are on a whole other c
 Based on what's above the following "matrix' can be deducted for better or worse.
 
 1. _Not_ using ASP.NET Core Identity
-   1. Basic Auth w/o Identity
-      1. MVC (`mvc-basic-without-identity`)
+   1. [Basic Auth w/o Identity](without-identity/basic/README.md)
+      1. [MVC (`mvc-basic-without-identity`)](without-identity/basic/mvc-basic-without-identity/README.md)
       2. API (`api-basic-without-identity`)
       3. API + React (`spa-basic-without-identity`)
    2. ~~Cookie?~~ ~~Session?~~ Stateful Auth w/o Identity
@@ -126,44 +126,6 @@ Some combination of things doesn't really work, I may skip those without prior w
 TODO: what comes below will be restructured.
 
 ## _No_ Identity
-
-### Basic Auth w/o Identity
-
-1. [No bueno for out-of-the-box solutions](https://stackoverflow.com/a/35300866/433835)
-
-2. [Custom solution](https://dotnetthoughts.net/implementing-basic-authentication-in-minimal-webapi/) is pluggable via adding a middleware
-
-3. However there’s no default/easy way to specify which endpoints require basic authentication
-
-4. There is no _logout_ for basic authentication
-
-    1. There [seems to be a hack that _doesn’t work_](https://stackoverflow.com/a/19258791/433835)? 🤔
-
-5. Login method is built into browsers, there’s no way to customize it (I lied, because when using React or other SPA frameworks you’re doing just that)
-
-6. This is a _stateless_ authentication format (every request contains authentication information, but contains no _authorization_ information - authorization stuff is handled on the server making that _stateful_)
-
-
-#### WebApplication1 = MVC
-
-![](https://lh3.googleusercontent.com/gLh4OcflRxRWoLr3zAKX6Uv1bTlpEBZas4iODcONrRByMWi-u7pf8cXS9JWXqu154WNtZyvCUWZxj-VzgD7u9qB-rQPUa8Htnd0ndilTmIgH2u0TM_7dQv7iiLcjBp1ECjGWb1rE77T_0Q8FqFKR9w)
-
-- Regular MVC app
-
-- It contains wwwroot that contains static assets, Bootstrap, etc.
-
-- Create a _/Home/UserSecret_ and _/Home/AdminSecret_ view and [put \[Authorize\] on it](https://learn.microsoft.com/en-us/aspnet/core/security/authorization/simple?view=aspnetcore-7.0) (requiring “Admin” role on the latter)
-
-- Without authentication in place there’s a big ass error page
-
-- After adding authentication (the custom basic authentication handler) stuff “works”
-
-- Mind the request path testing at the beginning of the custom authentication handler implementation
-
-    - This could have done via [checking for the _AllowAnonymous_ attribute](https://stackoverflow.com/questions/68070198/net-core-web-api-api-key-authentication-allowanonymous) too at runtime
-
-- The same thing could be [handled with a filter](https://learn.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-7.0#filter-scopes-and-order-of-execution) - it seems unnecessarily complicated 😟
-
 
 #### WebApplication2 = API
 

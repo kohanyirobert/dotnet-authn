@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MvcBasicWithoutIdentity.Models;
 
@@ -19,6 +20,18 @@ public class HomeController : Controller
     }
 
     public IActionResult Privacy()
+    {
+        return View();
+    }
+    
+    [Authorize]
+    public IActionResult UserSecret()
+    {
+        return View();
+    }
+    
+    [Authorize(Roles = "Admin")]
+    public IActionResult AdminSecret()
     {
         return View();
     }
