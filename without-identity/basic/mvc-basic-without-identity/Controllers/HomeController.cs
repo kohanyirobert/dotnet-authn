@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using mvc_basic_without_identity.Models;
+using MvcBasicWithoutIdentity.Models;
 
-namespace mvc_basic_without_identity.Controllers;
+namespace MvcBasicWithoutIdentity.Controllers;
 
 public class HomeController : Controller
 {
