@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication9", "WebAppli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication10", "WebApplication10\WebApplication10.csproj", "{8207A647-02E9-4283-AED9-BE6256B9D582}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mvc-basic-without-identity", "without-identity\basic\mvc-basic-without-identity\mvc-basic-without-identity.csproj", "{FD1CA64F-8999-4DCA-BBA1-C6B6FD50E979}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,5 +56,9 @@ Global
 		{8207A647-02E9-4283-AED9-BE6256B9D582}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8207A647-02E9-4283-AED9-BE6256B9D582}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8207A647-02E9-4283-AED9-BE6256B9D582}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD1CA64F-8999-4DCA-BBA1-C6B6FD50E979}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD1CA64F-8999-4DCA-BBA1-C6B6FD50E979}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD1CA64F-8999-4DCA-BBA1-C6B6FD50E979}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD1CA64F-8999-4DCA-BBA1-C6B6FD50E979}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
