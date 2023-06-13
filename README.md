@@ -14,6 +14,7 @@ Samples and notes of different authentication techniques demonstrated with ASP.N
 ### Non-goals
 
 - Be super-duper focused on what is _the_ most secure way of doing things (_it depends_)
+- To create setups for same-site/cross-site/secure/insecure/etc. cookie scenarios in CORS/no-CORS settings
 
 ## First Things First
 
