@@ -1,8 +1,7 @@
-﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebApplication2.Controllers;
+namespace ApiBasicWithoutIdentity.Controllers;
 
 [ApiController]
 [Route("[controller]")]

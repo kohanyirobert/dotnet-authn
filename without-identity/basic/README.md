@@ -12,5 +12,5 @@
 ## Sample Projects
 
 1. [MVC (`mvc-basic-without-identity`)](mvc-basic-without-identity/README.md)
-2. API (`api-basic-without-identity`)
+2. [API (`api-basic-without-identity`)](api-basic-without-identity/README.md)
 3. API + React (`spa-basic-without-identity`)

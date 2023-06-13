@@ -1,4 +1,4 @@
-namespace WebApplication2;
+namespace api_basic_without_identity;
 
 public class WeatherForecast
 {

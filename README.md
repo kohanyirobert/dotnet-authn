@@ -96,7 +96,7 @@ Based on what's above the following "matrix' can be deducted for better or worse
 1. _Not_ using ASP.NET Core Identity
    1. [Basic Auth w/o Identity](without-identity/basic/README.md)
       1. [MVC (`mvc-basic-without-identity`)](without-identity/basic/mvc-basic-without-identity/README.md)
-      2. API (`api-basic-without-identity`)
+      2. [API (`api-basic-without-identity`)](without-identity/basic/api-basic-without-identity/README.md)
       3. API + React (`spa-basic-without-identity`)
    2. ~~Cookie?~~ ~~Session?~~ Stateful Auth w/o Identity
       1. MVC (`mvc-stateful-without-identity`)
@@ -126,14 +126,6 @@ Some combination of things doesn't really work, I may skip those without prior w
 TODO: what comes below will be restructured.
 
 ## _No_ Identity
-
-#### WebApplication2 = API
-
-![](https://lh3.googleusercontent.com/BKBb8Uc3KPXENzx3JI7GKVuILzKjZvsdd-ScvO3wT0ATtw6NpPOmzym_nmxDN3BA0ayubLt6rwZ6kvsRU9FW6PekqJTH8gUZxJoeCaaWG2XYpKMWye6l2bVr9VNo-8k1XxH-11_XXk9rTgDNlpzpHw)
-
-- Web API project
-- The same handler is registered as for the previous app, works the same, only it doesn’t use MVC 🤷‍♀️
-
 
 #### WebApplication3 = API + React
 
