@@ -1,4 +1,4 @@
-namespace WebApplication3;
+namespace spa_basic_without_identity;
 
 public class WeatherForecast
 {

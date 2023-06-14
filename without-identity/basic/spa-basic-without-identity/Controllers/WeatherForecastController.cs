@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace WebApplication3.Controllers;
+namespace spa_basic_without_identity.Controllers;
 
 [ApiController]
 [Route("[controller]")]

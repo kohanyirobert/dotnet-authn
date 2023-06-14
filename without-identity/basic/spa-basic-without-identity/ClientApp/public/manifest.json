@@ -1,6 +1,6 @@
 {
-  "short_name": "WebApplication3",
-  "name": "WebApplication3",
+  "short_name": "spa_basic_without_identity",
+  "name": "spa_basic_without_identity",
   "icons": [
     {
       "src": "favicon.ico",

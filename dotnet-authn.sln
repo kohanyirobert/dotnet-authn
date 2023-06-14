@@ -1,7 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication3", "WebApplication3\WebApplication3.csproj", "{7EC358D6-A386-4E06-A12C-BEC1D0A6DC9D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication4", "WebApplication4\WebApplication4.csproj", "{920159CB-1E23-4F0F-82A1-24C18E6DAB02}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication6", "WebApplication6\WebApplication6.csproj", "{7E3E1EFB-9BA6-47D7-AD0F-D43B89F187E6}"
@@ -16,16 +14,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mvc-basic-without-identity"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api-basic-without-identity", "without-identity\basic\api-basic-without-identity\api-basic-without-identity.csproj", "{175CC8C8-4BAB-4215-879D-DD775124BAF2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "spa-basic-without-identity", "without-identity\basic\spa-basic-without-identity\spa-basic-without-identity.csproj", "{CBF04BF4-CDA2-4B42-A398-5EC3DF4F2200}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7EC358D6-A386-4E06-A12C-BEC1D0A6DC9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7EC358D6-A386-4E06-A12C-BEC1D0A6DC9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7EC358D6-A386-4E06-A12C-BEC1D0A6DC9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7EC358D6-A386-4E06-A12C-BEC1D0A6DC9D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{920159CB-1E23-4F0F-82A1-24C18E6DAB02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{920159CB-1E23-4F0F-82A1-24C18E6DAB02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{920159CB-1E23-4F0F-82A1-24C18E6DAB02}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -54,5 +50,9 @@ Global
 		{175CC8C8-4BAB-4215-879D-DD775124BAF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{175CC8C8-4BAB-4215-879D-DD775124BAF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{175CC8C8-4BAB-4215-879D-DD775124BAF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBF04BF4-CDA2-4B42-A398-5EC3DF4F2200}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBF04BF4-CDA2-4B42-A398-5EC3DF4F2200}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBF04BF4-CDA2-4B42-A398-5EC3DF4F2200}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBF04BF4-CDA2-4B42-A398-5EC3DF4F2200}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

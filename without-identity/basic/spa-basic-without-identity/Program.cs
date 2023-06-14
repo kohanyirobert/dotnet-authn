@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Authentication;
-using WebApplication3.Services;
+using SpaBasicWithoutIdentity.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

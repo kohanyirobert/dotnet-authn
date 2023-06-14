@@ -1,5 +1,5 @@
 {
-  "name": "webapplication3",
+  "name": "spa_basic_without_identity",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
