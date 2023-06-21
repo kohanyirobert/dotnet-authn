@@ -99,11 +99,11 @@ Based on what's above the following "matrix' can be deducted for better or worse
       1. [MVC (`mvc-basic-without-identity`)](without-identity/basic/mvc-basic-without-identity/README.md)
       2. [API (`api-basic-without-identity`)](without-identity/basic/api-basic-without-identity/README.md)
       3. [SPA (`spa-basic-without-identity`)](without-identity/basic/spa-basic-without-identity/README.md)
-   2. ~~Cookie?~~ ~~Session?~~ Stateful Auth w/o Identity
+   2. ~~Cookie~~ ~~Session~~ Stateful(?) Auth w/o Identity
       1. MVC (`mvc-stateful-without-identity`)
       2. API (`api-stateful-without-identity`)
       3. API + React (`spa-stateful-without-identity`)
-   3. ~~JWT?~~ Stateless Auth w/o Identity
+   3. ~~JWT~~ Stateless(?) Auth w/o Identity
       1. MVC (`mvc-stateless-without-identity`)
       2. API (`api-stateless-without-identity`)
       3. API + React (`spa-stateless-without-identity`)
@@ -112,11 +112,11 @@ Based on what's above the following "matrix' can be deducted for better or worse
       1. MVC (`mvc-basic-with-identity`)
       2. API (`api-basic-with-identity`)
       3. API + React (`spa-basic-with-identity`)
-   2. ~~Cookie?~~ ~~Session?~~ Stateful Auth /w Identity
+   2. ~~Cookie~~ ~~Session~~ Stateful(?) Auth /w Identity
       1. MVC (`mvc-stateful-with-identity`)
       2. API (`api-stateful-with-identity`)
       3. API + React (`spa-stateful-with-identity`)
-   3. ~~JWT?~~ Stateless Auth /w Identity
+   3. ~~JWT~~ Stateless(?) Auth /w Identity
       1. MVC (`mvc-stateless-with-identity`)
       2. API (`api-stateless-with-identity`)
       3. API + React (`spa-stateless-with-identity`)
@@ -128,17 +128,6 @@ TODO: what comes below will be restructured.
 
 ## _No_ Identity
 
-### ~~Cookie?Session?~~Stateful? Auth w/o Identity
-
-- Another name for this is “form-based” auth, not sure what’s the best name
-- Some kind of “session identifier” is sent back from the server that is included in every client request (automatically), such an identifier can be “authenticated” (after a login) or “unauthenticated” (when someone haven’t logged in yet)
-- _Stateful solution as compared to basic authentication (the server stores whether users having a specific session ID have already logged-in and/or what kind of claims/authorization level they have)_
-- Requires a custom login form of some sorts
-- The main drawback is that _each_ backend server has to know about an authenticated session (when doing load-balancing between multiple backend servers this can be problematic, but can be solved with various techniques: sticky sessions, session information stored in a central database instead of on servers “locally”, etc.)
-- Kind of most supported and well-known basic way of doing logins
-- _Can be tricky when dealing with cross-site requests (as in such scenarios cookies are not automatically sent from client to server by browsers - depends on the cookie and/or CORS settings, and this also affects security)_
-
-
 #### WebApplication4 = MVC
 
 ![](https://lh3.googleusercontent.com/l834mlOL1GIkaLcSRqWillCkHW5zpGH865pDWePyiFhXOx3Bj_FkhnfLAevnn1aKFonns8DMaGlHjvrtXNDcxtIKzIlo2A8Jobd6E-cwKroC34HScsE23ajD1xCNirmxrbXMcLrKiUOqKzoEfOSpWA)
@@ -147,19 +136,19 @@ TODO: what comes below will be restructured.
 
 - This time instead of basic authentication uses cookie-based authentication, [based on this tutorial](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/cookie?view=aspnetcore-7.0)
 
-    - Since [ASP.NET Core 7](https://en.wikipedia.org/wiki/ASP.NET_Core) (I’m not sure whether .NET and ASP.NET Core is versioned _together_ or not) there’s no need to specify _CookieAuthenticationDefaults_ for the first call to _AddAuthentication_, if there’s only one auth scheme registered it’ll be the default
+    - Since [ASP.NET Core 7](https://en.wikipedia.org/wiki/ASP.NET_Core) (I'm not sure whether .NET and ASP.NET Core is versioned _together_ or not) there's no need to specify _CookieAuthenticationDefaults_ for the first call to _AddAuthentication_, if there's only one auth scheme registered it'll be the default
 
 - Only the Login page is implemented, the following are _not_
 
     - Proper handling of _ReturnUrl_ - redirect always to the _Home_ page on success
-    - When access is denied (user accessing admin content) there’s a 404 page instead
+    - When access is denied (user accessing admin content) there's a 404 page instead
     - _Logout is handled with GET, but should be POST instead in an ideal scenario - also the Logout link is always visible_
 
 
 #### WebApplication5 = API
 
-- I didn’t create this example yet, but I would create the same project as with _WebApplication2_ and then configure the cookie-based authentication from _WebApplication4_
-- This is not terribly useful or complicated, maybe some other time (as here we have no “login mechanism” by default as with basic authentication”, this would have to be tested with _curl_ or similar)
+- I didn't create this example yet, but I would create the same project as with _WebApplication2_ and then configure the cookie-based authentication from _WebApplication4_
+- This is not terribly useful or complicated, maybe some other time (as here we have no "login mechanism" by default as with basic authentication", this would have to be tested with _curl_ or similar)
 
 
 #### WebApplication6 = API + React
@@ -170,33 +159,33 @@ TODO: what comes below will be restructured.
 
 - _setupProxy_ again needs to be modified
 
-- Using _AddCookie_ results in _weird_ 302 redirects when accessing a protected route, which can be handled in React, but it’s still weird (can be “ignored” and disable with a flag)
+- Using _AddCookie_ results in _weird_ 302 redirects when accessing a protected route, which can be handled in React, but it's still weird (can be "ignored" and disable with a flag)
 
-    - .NET 8 preview comes with new stuff for ASP.NET Core as well, [**for example better SPA integration when using _Identity_**](https://github.com/dotnet/aspnetcore/pull/47927) **(**this scenario is about _not_ using Identity at all, but I wager the “minimal API” version of the SPA templates available in _dotnet new_ will leverage some of this)
+    - .NET 8 preview comes with new stuff for ASP.NET Core as well, [**for example better SPA integration when using _Identity_**](https://github.com/dotnet/aspnetcore/pull/47927) **(**this scenario is about _not_ using Identity at all, but I wager the "minimal API" version of the SPA templates available in _dotnet new_ will leverage some of this)
 
 - _Logout is not implemented (restart the server)_
 
-- After a successful login there’s nothing to do, cookies are sent with every request
+- After a successful login there's nothing to do, cookies are sent with every request
 
-- **In same-site scenarios this works as expected, but things break down when cross-site requests come into picture, the example doesn’t deal with this (generally things break in cross-site request scenarios 😁)**
+- **In same-site scenarios this works as expected, but things break down when cross-site requests come into picture, the example doesn't deal with this (generally things break in cross-site request scenarios 😁)**
 
 
 ### ~~JWT?~~Stateless? Auth w/o Identity
 
-- JWT is actually just something that travels around the wire, a different kind of “session identifier”, it’s not a protocol
+- JWT is actually just something that travels around the wire, a different kind of "session identifier", it's not a protocol
 
 - E.g. one could use OAuth2 with JWT or something else, _and_ JWT tokens can travel as _cookies_ between client and server
 
-- It’s important to note that using cookies with JWT makes it a _simple stateless_ _authentication_ solution
+- It's important to note that using cookies with JWT makes it a _simple stateless_ _authentication_ solution
 
 - After a client receives a JWT it can be then used to:
 
     - authentication (just as basic authentication)
     - authorization (the token can encapsulate authorization details, _claims_ of what the holder of the token can do in a system)
     - as it is digitally signed it can be passed around _freely_
-    - this comes at a price: a token shouldn’t be valid forever, it is usually valid for a specific amount of time after it needs to _refreshed_, which fact in itself present several headaches :)
+    - this comes at a price: a token shouldn't be valid forever, it is usually valid for a specific amount of time after it needs to _refreshed_, which fact in itself present several headaches :)
 
-- **Here we won’t use OAuth2 or anything as that’s a complex thing, a _framework_ for authentication (with authorization servers and resource servers and _whatnot_)**
+- **Here we won't use OAuth2 or anything as that's a complex thing, a _framework_ for authentication (with authorization servers and resource servers and _whatnot_)**
 
 
 #### WebApplication7 = MVC
@@ -223,12 +212,12 @@ TODO: what comes below will be restructured.
 - And after test the token like this
 
     - _curl -ivH "Authorization: Bearer $(dotnet user-jwts print -o token 9e0e57a1)" <http://localhost:5289/Home/UserSecret>_
-    - Where the token’s ID can be different
+    - Where the token's ID can be different
 
 
 #### WebApplication8 = API
 
-- This project example, without a GUI would be same as the previous _WebApplication7_ so I’ll skip it for now
+- This project example, without a GUI would be same as the previous _WebApplication7_ so I'll skip it for now
 
 
 #### WebApplication9 = API + React
@@ -241,9 +230,9 @@ TODO: what comes below will be restructured.
     - store that in localStorage (_not secure at all_)
     - use the token stored in localStorage in subsequent API calls
 
-- **Here the user-jwts _could_ work like instead having a working “login” we could just create a localStorage entry manually and set the token obtained from the command like, but that’s not very _cool_**
+- **Here the user-jwts _could_ work like instead having a working "login" we could just create a localStorage entry manually and set the token obtained from the command like, but that's not very _cool_**
 
-- **So let’s create a security token server/service or STS _embedded_ into the backend**
+- **So let's create a security token server/service or STS _embedded_ into the backend**
 
 - Note: in the _AccountController_ the _FromBody_ attribute is used on the method parameters instead of _FromForm_
 
@@ -258,7 +247,7 @@ TODO: what comes below will be restructured.
 
 - This version is probably really picky when dealing with a cross-site request scenario
 
-    - Maybe demo this by getting the JWT cookie and making call in the browser’s console to a 3rd party endpoint (something like the Pokemon API)
+    - Maybe demo this by getting the JWT cookie and making call in the browser's console to a 3rd party endpoint (something like the Pokemon API)
 
 
 ## _With_ Identity
@@ -271,25 +260,25 @@ TODO: what comes below will be restructured.
 
 ![](https://lh3.googleusercontent.com/7hGtiMr3dPOj_miRFHEv0muF6hI5Dr5igb0KhWrmcUw8dVnsvMq4lekl9p3biM40NozVX6sJ2HFW_-ql3RSjc8KZ6v_NaADIJyD_LG0kvZZdehlZ4mUfajj_z5eLJ0eqn4o_9NzNFDWJTZc33-MDhA)
 
-- Even though there’s no _real_ login as the credentials need to be present on the client side Identity still could be used for validating login credentials and registration
+- Even though there's no _real_ login as the credentials need to be present on the client side Identity still could be used for validating login credentials and registration
 
-- Identity’s default UI is tuned towards _form_-based login, which basic authentication is not suited for
+- Identity's default UI is tuned towards _form_-based login, which basic authentication is not suited for
 
     - [The default UI and endpoints for Identity are broken out from userland code since .NET Core 2.1 onwards](https://stackoverflow.com/questions/50802781/where-are-the-login-and-register-pages-in-an-aspnet-core-scaffolded-app)
     - To modify the defaults one could [leverage scaffolding](https://blog.jetbrains.com/dotnet/2021/03/18/scaffolding-for-asp-net-core-projects-comes-to-rider-2021-1/) and _bring_ all that code to a project (selectively)
     - To see how defaults work one could [take a look at the source code as well](https://github.com/dotnet/aspnetcore/tree/main/src/Identity/UI/src/Areas/Identity)
 
-- As we don’t want to use cookie-based authentication we don’t need _AddDefaultIdentity_
+- As we don't want to use cookie-based authentication we don't need _AddDefaultIdentity_
 
-    - On a side-note, there is [_AddDefaultIdentity, AddIdentity_ and _AddIdentityCore_](https://stackoverflow.com/questions/55361533/addidentity-vs-addidentitycore), here we’ll need the latter with some extras
+    - On a side-note, there is [_AddDefaultIdentity, AddIdentity_ and _AddIdentityCore_](https://stackoverflow.com/questions/55361533/addidentity-vs-addidentitycore), here we'll need the latter with some extras
 
-- When using _“Individual authentication”_ the _MapRazorPages_ call is added to _Program.cs_, we don’t need that
+- When using _"Individual authentication"_ the _MapRazorPages_ call is added to _Program.cs_, we don't need that
 
 - When using _AddIdentityCore_ no _SignInManager_ is configured by default
 
 - Also need to add _AddRoles_ to be able fiddle with roles
 
-- By default “strong” passwords are used, this is turned off in the options to _AddIdentityCore_
+- By default "strong" passwords are used, this is turned off in the options to _AddIdentityCore_
 
 - _AddAuthentication needs to be configured as with WebApplication1, **the main difference is in how BasicAuthenticationHandler uses SignInManager to use the underlying database**_
 
@@ -349,7 +338,7 @@ TODO: what comes below will be restructured.
     - [Getting the signing keys](https://github.com/dotnet/aspnetcore/blob/110522a9160f910447e759e2048edc33f8eb9266/src/Tools/dotnet-user-jwts/src/Helpers/SigningKeysHandler.cs)
     - [Creating the token](https://github.com/dotnet/aspnetcore/blob/110522a9160f910447e759e2048edc33f8eb9266/src/Tools/dotnet-user-jwts/src/Helpers/JwtIssuer.cs#L60)
 
-- Accessing a user’s email address in a protected route
+- Accessing a user's email address in a protected route
 
     - _HttpContext.User.FindFirst(ClaimTypes.Email).Value_
     - Name can be accessed more easily
