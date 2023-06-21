@@ -128,12 +128,6 @@ TODO: what comes below will be restructured.
 
 ## _No_ Identity
 
-#### WebApplication5 = API
-
-- I didn't create this example yet, but I would create the same project as with _WebApplication2_ and then configure the cookie-based authentication from _WebApplication4_
-- This is not terribly useful or complicated, maybe some other time (as here we have no "login mechanism" by default as with basic authentication", this would have to be tested with _curl_ or similar)
-
-
 #### WebApplication6 = API + React
 
 - Same as _WebApplication3_ just with _AddCookie_ (or the same as the previous _WebApplication5_ with React)
