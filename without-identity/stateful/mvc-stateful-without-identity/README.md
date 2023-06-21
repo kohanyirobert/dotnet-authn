@@ -14,4 +14,3 @@
     2. When access is denied (user accessing admin content) there's a 404 page instead
     3. Logout is handled with GET, but should be POST instead in an ideal scenario - also the logout link is always
        visible
-

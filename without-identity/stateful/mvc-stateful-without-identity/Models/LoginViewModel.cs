@@ -1,15 +1,15 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace WebApplication4.Models;
+namespace MvcStatefulWithoutIdentity.Models;
 
 public class LoginViewModel
 {
     [Required]
     [EmailAddress]
     [Display(Name = "Email Address")]
-    public string Email { get; set; }
+    public string? Email { get; set; }
 
     [Required]
     [DataType(DataType.Password)]
-    public string Password { get; set; }
+    public string? Password { get; set; }
 }

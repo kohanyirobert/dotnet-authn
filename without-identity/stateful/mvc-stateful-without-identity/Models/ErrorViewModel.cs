@@ -1,4 +1,4 @@
-namespace mvc_stateful_without_identity.Models;
+namespace MvcStatefulWithoutIdentity.Models;
 
 public class ErrorViewModel
 {

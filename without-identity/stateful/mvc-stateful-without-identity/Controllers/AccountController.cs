@@ -1,12 +1,10 @@
-﻿using System.Diagnostics;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using WebApplication4.Models;
+using MvcStatefulWithoutIdentity.Models;
 
-namespace WebApplication4.Controllers;
+namespace MvcStatefulWithoutIdentity.Controllers;
 
 public class AccountController : Controller
 {

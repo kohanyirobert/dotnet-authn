@@ -7,4 +7,8 @@
         <RootNamespace>MvcStatefulWithoutIdentity</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <AdditionalFiles Include="Views\Account\Login.cshtml" />
+    </ItemGroup>
+
 </Project>
