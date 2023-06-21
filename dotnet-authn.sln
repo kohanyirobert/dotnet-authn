@@ -16,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api-basic-without-identity"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "spa-basic-without-identity", "without-identity\basic\spa-basic-without-identity\spa-basic-without-identity.csproj", "{CBF04BF4-CDA2-4B42-A398-5EC3DF4F2200}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mvc-stateful-without-identity", "without-identity\stateful\mvc-stateful-without-identity\mvc-stateful-without-identity.csproj", "{DA567B67-1CF9-49D8-B3D6-C403DB7F338B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,5 +56,9 @@ Global
 		{CBF04BF4-CDA2-4B42-A398-5EC3DF4F2200}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBF04BF4-CDA2-4B42-A398-5EC3DF4F2200}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBF04BF4-CDA2-4B42-A398-5EC3DF4F2200}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA567B67-1CF9-49D8-B3D6-C403DB7F338B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA567B67-1CF9-49D8-B3D6-C403DB7F338B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA567B67-1CF9-49D8-B3D6-C403DB7F338B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA567B67-1CF9-49D8-B3D6-C403DB7F338B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

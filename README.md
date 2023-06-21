@@ -128,23 +128,6 @@ TODO: what comes below will be restructured.
 
 ## _No_ Identity
 
-#### WebApplication4 = MVC
-
-![](https://lh3.googleusercontent.com/l834mlOL1GIkaLcSRqWillCkHW5zpGH865pDWePyiFhXOx3Bj_FkhnfLAevnn1aKFonns8DMaGlHjvrtXNDcxtIKzIlo2A8Jobd6E-cwKroC34HScsE23ajD1xCNirmxrbXMcLrKiUOqKzoEfOSpWA)
-
-- Regular MVC app just like _WebApplication1_
-
-- This time instead of basic authentication uses cookie-based authentication, [based on this tutorial](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/cookie?view=aspnetcore-7.0)
-
-    - Since [ASP.NET Core 7](https://en.wikipedia.org/wiki/ASP.NET_Core) (I'm not sure whether .NET and ASP.NET Core is versioned _together_ or not) there's no need to specify _CookieAuthenticationDefaults_ for the first call to _AddAuthentication_, if there's only one auth scheme registered it'll be the default
-
-- Only the Login page is implemented, the following are _not_
-
-    - Proper handling of _ReturnUrl_ - redirect always to the _Home_ page on success
-    - When access is denied (user accessing admin content) there's a 404 page instead
-    - _Logout is handled with GET, but should be POST instead in an ideal scenario - also the Logout link is always visible_
-
-
 #### WebApplication5 = API
 
 - I didn't create this example yet, but I would create the same project as with _WebApplication2_ and then configure the cookie-based authentication from _WebApplication4_
