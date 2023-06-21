@@ -99,7 +99,7 @@ Based on what's above the following "matrix' can be deducted for better or worse
       1. [MVC (`mvc-basic-without-identity`)](without-identity/basic/mvc-basic-without-identity/README.md)
       2. [API (`api-basic-without-identity`)](without-identity/basic/api-basic-without-identity/README.md)
       3. [SPA (`spa-basic-without-identity`)](without-identity/basic/spa-basic-without-identity/README.md)
-   2. ~~Cookie~~ ~~Session~~ Stateful(?) Auth w/o Identity
+   2. [~~Cookie~~ ~~Session~~ Stateful(?) Auth w/o Identity](without-identity/stateful/README.md)
       1. MVC (`mvc-stateful-without-identity`)
       2. API (`api-stateful-without-identity`)
       3. API + React (`spa-stateful-without-identity`)
