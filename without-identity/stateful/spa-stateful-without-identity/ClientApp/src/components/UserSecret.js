@@ -8,10 +8,14 @@ export function UserSecret() {
 
     useEffect(() => {
         async function getIndex() {
-            const response = await fetch("/Home/UserSecret", {
-                redirect: 'manual'
-            })
-            setText(response.ok ? await response.text() : response.statusText)
+            try {
+                const response = await fetch("/Home/UserSecret", {
+                    redirect: 'error',
+                })
+                setText(response.ok ? await response.text() : response.statusText)
+            } catch (e) {
+                setText(e.message)
+            }
         }
 
         getIndex()

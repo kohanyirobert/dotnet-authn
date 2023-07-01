@@ -1,4 +1,4 @@
-namespace WebApplication6;
+namespace spa_stateful_without_identity;
 
 public class WeatherForecast
 {

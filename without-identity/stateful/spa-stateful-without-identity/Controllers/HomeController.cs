@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebApplication6.Controllers;
+namespace SpaStatefulWithoutIdentity.Controllers;
 
 [ApiController]
 [Route("[controller]")]

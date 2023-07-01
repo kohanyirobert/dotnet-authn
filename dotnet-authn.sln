@@ -1,7 +1,5 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication6", "WebApplication6\WebApplication6.csproj", "{7E3E1EFB-9BA6-47D7-AD0F-D43B89F187E6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication7", "WebApplication7\WebApplication7.csproj", "{080A667E-0378-4511-8FB4-F4E50E435AB5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication9", "WebApplication9\WebApplication9.csproj", "{17D6D673-05BC-44E4-A736-2792AD6E547F}"
@@ -16,16 +14,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "spa-basic-without-identity"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mvc-stateful-without-identity", "without-identity\stateful\mvc-stateful-without-identity\mvc-stateful-without-identity.csproj", "{DA567B67-1CF9-49D8-B3D6-C403DB7F338B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "spa-stateful-without-identity", "without-identity\stateful\spa-stateful-without-identity\spa-stateful-without-identity.csproj", "{929439DF-5BE2-4E64-B19B-6158411D08C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7E3E1EFB-9BA6-47D7-AD0F-D43B89F187E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7E3E1EFB-9BA6-47D7-AD0F-D43B89F187E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7E3E1EFB-9BA6-47D7-AD0F-D43B89F187E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7E3E1EFB-9BA6-47D7-AD0F-D43B89F187E6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{080A667E-0378-4511-8FB4-F4E50E435AB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{080A667E-0378-4511-8FB4-F4E50E435AB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{080A667E-0378-4511-8FB4-F4E50E435AB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -54,5 +50,9 @@ Global
 		{DA567B67-1CF9-49D8-B3D6-C403DB7F338B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA567B67-1CF9-49D8-B3D6-C403DB7F338B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA567B67-1CF9-49D8-B3D6-C403DB7F338B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{929439DF-5BE2-4E64-B19B-6158411D08C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{929439DF-5BE2-4E64-B19B-6158411D08C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{929439DF-5BE2-4E64-B19B-6158411D08C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{929439DF-5BE2-4E64-B19B-6158411D08C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

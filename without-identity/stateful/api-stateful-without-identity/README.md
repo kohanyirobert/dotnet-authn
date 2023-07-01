@@ -1,5 +1,7 @@
 ﻿# API + ~~Cookie~~ ~~Session~~ Stateful(?) Auth w/o Identity
 
+![Creating the project from template](template.png)
+
 ## Points of Interest
 
 - I didn't create this example yet, but I would create the same project as with [`api-basic-without-identity`](../../../without-identity/basic/api-basic-without-identity/README.md) and then configure the

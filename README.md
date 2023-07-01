@@ -101,8 +101,8 @@ Based on what's above the following "matrix' can be deducted for better or worse
       3. [SPA (`spa-basic-without-identity`)](without-identity/basic/spa-basic-without-identity/README.md)
    2. [~~Cookie~~ ~~Session~~ Stateful(?) Auth w/o Identity](without-identity/stateful/README.md)
       1. [MVC (`mvc-stateful-without-identity`)](without-identity/stateful/mvc-stateful-without-identity/README.md)
-      2. API (`api-stateful-without-identity`)
-      3. API + React (`spa-stateful-without-identity`)
+      2. [API (`api-stateful-without-identity`)](without-identity/stateful/api-stateful-without-identity/README.md)
+      3. [API + React (`spa-stateful-without-identity`)](without-identity/stateful/spa-stateful-without-identity/README.md)
    3. ~~JWT~~ Stateless(?) Auth w/o Identity
       1. MVC (`mvc-stateless-without-identity`)
       2. API (`api-stateless-without-identity`)
@@ -127,25 +127,6 @@ Some combination of things doesn't really work, I may skip those without prior w
 TODO: what comes below will be restructured.
 
 ## _No_ Identity
-
-#### WebApplication6 = API + React
-
-- Same as _WebApplication3_ just with _AddCookie_ (or the same as the previous _WebApplication5_ with React)
-
-- The _Login_ component now _does_ login not as with the previous example
-
-- _setupProxy_ again needs to be modified
-
-- Using _AddCookie_ results in _weird_ 302 redirects when accessing a protected route, which can be handled in React, but it's still weird (can be "ignored" and disable with a flag)
-
-    - .NET 8 preview comes with new stuff for ASP.NET Core as well, [**for example better SPA integration when using _Identity_**](https://github.com/dotnet/aspnetcore/pull/47927) **(**this scenario is about _not_ using Identity at all, but I wager the "minimal API" version of the SPA templates available in _dotnet new_ will leverage some of this)
-
-- _Logout is not implemented (restart the server)_
-
-- After a successful login there's nothing to do, cookies are sent with every request
-
-- **In same-site scenarios this works as expected, but things break down when cross-site requests come into picture, the example doesn't deal with this (generally things break in cross-site request scenarios 😁)**
-
 
 ### ~~JWT?~~Stateless? Auth w/o Identity
 

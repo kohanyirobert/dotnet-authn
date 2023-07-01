@@ -1,5 +1,5 @@
 {
-  "name": "webapplication6",
+  "name": "spa_stateful_without_identity",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
