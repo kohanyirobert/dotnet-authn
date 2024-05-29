@@ -65,7 +65,9 @@ With **_.NET Framework and ASP.NET_** (watch out, no Core or anything) one could
 This is an [API shipped with/as an extension for ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-7.0) which is kind of hard to miss in the ecosystem.
 It pretty much always comes up when dealing with authentication in .NET.
 It supposed to _help_ things, but this isn't all that obvious.
-In order to tackle how to best leverage it let's focus on it in the examples. 
+In order to tackle how to best leverage it let's focus on it in the examples.
+
+**Important**: since Identity is tailored to MVC style apps it works wonky when used in an SPA, meaning when an endpoint on a backend is accessed without the required authorization level instead of just returning a 401/403 status code to the frontend it sends a 302 with a redirect to `/Account/Login` which is not always useful. If this feature needs to be disabled [here's a way to do it](https://stackoverflow.com/a/64266340/433835).
 
 ## What now?
 
